@@ -1,3 +1,3 @@
 # starknet
 testing .cairo starknet contract
-revised
+two contracts for starknet
