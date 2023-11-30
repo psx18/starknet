@@ -1,7 +1,7 @@
 #[starknet::interface]
 trait ISimpleStorage<TContractState> {
-    fn sset(ref self: TContractState, x: u128);
-    fn gget(self: @TContractState) -> u128;
+    fn ssset(ref self: TContractState, x: u128);
+    fn ggget(self: @TContractState) -> u128;
 }
 
 #[starknet::contract]
@@ -16,10 +16,10 @@ mod SimpleStorage {
 
     #[external(v0)]
     impl SimpleStorage of super::ISimpleStorage<ContractState> {
-        fn sset(ref self: ContractState, x: u128) {
+        fn ssset(ref self: ContractState, x: u128) {
             self.stored_data.write(x);
         }
-        fn gget(self: @ContractState) -> u128 {
+        fn ggget(self: @ContractState) -> u128 {
             self.stored_data.read()
         }
     }
